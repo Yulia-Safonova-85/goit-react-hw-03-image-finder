@@ -1,6 +1,8 @@
 import { Component } from "react";
 import { toast } from 'react-toastify';
 import './SearchBar.css';
+import { FiSearch } from "react-icons/fi";
+
 
 export class Searchbar extends Component {
     state = {
@@ -28,7 +30,8 @@ export class Searchbar extends Component {
         return (
 <header className="Searchbar">
   <form className="SearchForm" onSubmit={this.handleSubmit}>
-    <button type="submit" className="SearchForm-button">
+              <button type="submit" className="SearchForm-button">
+               < FiSearch size="20" color="darkblue"/>
       <span className="SearchForm-button-label">Search</span>
     </button>
     <input

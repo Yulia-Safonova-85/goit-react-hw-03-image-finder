@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './Button.css';
 
 export const Button = ({ onLoadMore }) => {
     return (

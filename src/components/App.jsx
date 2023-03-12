@@ -29,6 +29,7 @@ export class App extends Component {
 
   onLoadMore = () => {
     this.setState(prevState => ({ page: prevState.page + 1 }))
+    
   };
 
   openModal = largeImageURL => {
@@ -61,7 +62,7 @@ export class App extends Component {
       } else {
         this.setState(prevState => ({
           images: [...prevState.images, ...hits],
-          isLoading: false,
+          status: 'resolved', loadMore: true,
       }))
       }
     } catch (error) {
@@ -77,7 +78,7 @@ export class App extends Component {
     
     if (status === 'pending') {
       return <Loader />;
-}
+      }
 
     if (status === 'rejected') {
       return <h1>{error.message}</h1>
@@ -87,7 +88,7 @@ export class App extends Component {
         <Searchbar onSubmit={this.handleFormSubmit} />
         <ImageGallery items={images} openModal ={this.openModal} />
 
-        {loadMore && <Button onLoadMore={this.onLoadMore} page={page} />}
+        {loadMore && <Button onLoadMore={this.onLoadMore} page={page} />} 
 
         {showModal && <Modal largeImageURL={largeImageURL} onClose={this.closeModal} />}
         
