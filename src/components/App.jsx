@@ -19,7 +19,6 @@ export class App extends Component {
     per_page: 12,
     error: null,
     status: 'idle',
-    isLoading: false,
     loadMore: false,
     showModal: false,
 
@@ -47,11 +46,12 @@ export class App extends Component {
     const { searchName, page } = this.state;
     if (prevState.searchName !== searchName || prevState.page !== page) {
       this.getImages(searchName, page)
-      this.setState({status:'pending'})
+      
     }
   }
   getImages = async (querry, page) => {
-    this.setState({ isLoading: true })
+    this.setState({status:'pending'})
+   
     if (!querry) {
       return;
     }
